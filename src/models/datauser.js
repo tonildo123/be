@@ -14,6 +14,14 @@ const dataSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    latitud: {
+        type: String,
+        required: true,
+    },
+    longitud: {
+        type: String,
+        required: true,
+    },
 });
 
 module.exports = mongoose.model('Data', dataSchema);
