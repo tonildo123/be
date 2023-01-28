@@ -1,11 +1,11 @@
 ###
-POST http://localhost:3636/api/users HTTP/1.1
+POST http://localhost:3636/api/create HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Carlos Antonio diaz",
-    "age": 25,
-    "email": "tony81191@gmail.com"
+    
+    "email": "tony@gmail.com",
+    "password":"Carlos866456"
 
 }
 
@@ -14,18 +14,17 @@ Content-Type: application/json
 GET http://localhost:3636/api/users HTTP/1.1
 
 ###
-GET http://localhost:3636/api/users/63cc5405a47ca7e783e9ee40 HTTP/1.1
+GET http://localhost:3636/api/users/63d54c25ac4093d1830d97f1 HTTP/1.1
 
 ###
-PUT http://localhost:3636/api/users/63cc5405a47ca7e783e9ee40 HTTP/1.1
+PUT http://localhost:3636/api/update/63d54c25ac4093d1830d97f1 HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Tony Diaz",
-    "age": 31,
-    "email": "tony81191@gmail.com"
+    "email": "tony010101@gmail.com",
+    "password":"Carlos866456"
 }
 
 
 ###
-DELETE http://localhost:3636/api/users/63cc540ba47ca7e783e9ee42 HTTP/1.1
+DELETE http://localhost:3636/api/delete/63d54c25ac4093d1830d97f1 HTTP/1.1

@@ -1,11 +1,9 @@
-const express = require('express');
-const router = express.Router();
 const User = require('../models/user');
 
-// create a user
-router.post("/users", (req, res)=>{
+const createUser = async (req, res)=>{
+
     const user = User(req.body)
-    user.save()
+    await user.save()
     .then((user)=>{
         res.status(200).json({
             message: "User created",
@@ -18,14 +16,11 @@ router.post("/users", (req, res)=>{
             error: err
         })
     })
-})
+}
 
-// get all users
+const getAllUsers = async (req, res)=>{
 
-
-router.get("/users", (req, res)=>{
-
-    User.find()
+    await User.find()
         .then((user)=>{
         res.status(200).json({
             message: "Users found",
@@ -38,12 +33,11 @@ router.get("/users", (req, res)=>{
             error: err
         })
     })
-})
+}
 
-// get a user by id
-router.get("/users/:id", (req, res)=>{
+const findeUserById = async (req, res)=>{
     const {id} = req.params
-    User.findById(id)
+    await User.findById(id)
         .then((user)=>{
         res.status(200).json({
             message: "User found",
@@ -56,14 +50,12 @@ router.get("/users/:id", (req, res)=>{
             error: err
         })
     })
-})
+}
 
-
-// update a user by id
-router.put("/users/:id", (req, res)=>{
+const updateUserById = async (req, res)=>{
     const {id} = req.params
-    const {name, age, email} = req.body;
-    User.updateOne( {_id:id}, { $set: {name, age, email} } )
+    const {email, password} = req.body;
+    await User.updateOne( {_id:id}, { $set: {email, password} } )
         .then((user)=>{
         res.status(200).json({
             message: "User updated",
@@ -78,12 +70,10 @@ router.put("/users/:id", (req, res)=>{
         })
     })
 }
-)
 
-// delete a user by id
-router.delete("/users/:id", (req, res)=>{
+const deleteUserById = async  (req, res)=>{
     const {id} = req.params
-    User
+    await User
         .remove({_id:id})
         .then((user)=>{
         res.status(200).json({
@@ -99,9 +89,14 @@ router.delete("/users/:id", (req, res)=>{
         })
     })
 }
-)
 
 
 
+module.exports = {
+    createUser, 
+    getAllUsers,
+    findeUserById,
+    updateUserById,
+    deleteUserById
 
-module.exports = router;
+}
