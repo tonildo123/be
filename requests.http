@@ -4,11 +4,10 @@ Content-Type: application/json
 
 {
     
-    "email": "carlos@gmail.com",
-    "password":"tony81191"
+    "email": "jeff@gmail.com",
+    "password":"jeff8664"
 
 }
-
 
 ### 
 GET http://localhost:3636/api/users HTTP/1.1

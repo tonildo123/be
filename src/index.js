@@ -7,7 +7,7 @@ const app = express();
 const port = process.env.PORT || 3636;
 
 app.use(express.json()) // This is the middleware that allows us to parse the body of the request
-
+app.use(express.urlencoded({extended: false}));
 app.use("/api", allRouter) // This is the base path for all routes
 app.get("/", (req, res)=>{
 
