@@ -28,3 +28,14 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3636/api/delete/63d54c25ac4093d1830d97f1 HTTP/1.1
+
+###
+POST http://localhost:3636/api/login HTTP/1.1
+Content-Type: application/json
+
+{
+    
+   "email": "tony81191@gmail.com",
+   "password": "Carlos8664"
+
+}

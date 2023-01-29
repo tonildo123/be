@@ -90,6 +90,32 @@ const deleteUserById = async  (req, res)=>{
     })
 }
 
+const findUserWithEmailAndPassword = async (req, res)=>{
+    const {email, password} = req.body
+    await User.findOne({email})
+        .then((user)=>{
+            console.log(user)
+            if(password == user.password)
+            {
+                res.status(200).json({
+                    message: "User found",
+                    data:user
+                })
+            } else {
+                res.status(201).json({
+                    message: "Error de password",
+                    data:user
+                })
+            }
+        
+    })
+    .catch((err)=>{
+        res.status(500).json({
+            message: "No se encontro usuario",
+            error: err
+        })
+    })
+}
 
 
 module.exports = {
@@ -97,6 +123,7 @@ module.exports = {
     getAllUsers,
     findeUserById,
     updateUserById,
-    deleteUserById
+    deleteUserById, 
+    findUserWithEmailAndPassword
 
 }
