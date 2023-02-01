@@ -43,7 +43,7 @@ const getAllUsers = async (req, res)=>{
     })
     .catch((err)=>{
         res.status(500).json({
-            message: "Error creating user",
+            message: "Error getting user",
             error: err
         })
     })
