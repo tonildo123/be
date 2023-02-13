@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const mongoose = require('mongoose');
 
 const createUser = async (req, res)=>{
 
@@ -69,20 +70,51 @@ const findeUserById = async (req, res)=>{
 const updateUserById = async (req, res)=>{
     const {id} = req.params
     const {email, password} = req.body;
-    await User.updateOne( {_id:id}, { $set: {email, password} } )
-        .then((user)=>{
+
+    try {
+
+        if(!mongoose.isValidObjectId(id)){
+            return res.status(404)
+                    .json({
+                        message: "EL id no es valido",
+                    })
+
+        }
+
+        // si es un Id valido 
+        const user = await User.findByIdAndUpdate(id, {email, password}, {new:true})
+        if(!user){
+            return res.status(404)
+                    .json({
+                        message: "EL usuario no existe",
+                    })
+        }
         res.status(200).json({
-            message: "User updated",
+            message: "Actualizado con exito!",
             data:user
         })
+
+        
+    } catch (error) {
+        console.log('error al actualizar', error)
     }
-    )
-    .catch((err)=>{
-        res.status(500).json({
-            message: "Error updating user",
-            error: err
-        })
-    })
+
+
+
+    // await User.updateOne( {_id:id}, { $set: {email, password} } )
+    //     .then((user)=>{
+    //     res.status(200).json({
+    //         message: "User updated",
+    //         data:user
+    //     })
+    // }
+    // )
+    // .catch((err)=>{
+    //     res.status(500).json({
+    //         message: "Error updating user",
+    //         error: err
+    //     })
+    // })
 }
 
 const deleteUserById = async  (req, res)=>{

@@ -16,12 +16,12 @@ GET http://localhost:3636/api/users HTTP/1.1
 GET http://localhost:3636/api/users/63d54c25ac4093d1830d97f1 HTTP/1.1
 
 ###
-PUT http://localhost:3636/api/update/63d54c25ac4093d1830d97f1 HTTP/1.1
+PUT http://localhost:3636/api/update/63d911e7f3421a724b87fbac HTTP/1.1
 Content-Type: application/json
 
 {
-    "email": "tony010101@gmail.com",
-    "password":"Carlos866456"
+    "email": "poff@gmail.com",
+    "password":"Carlos8664"
 }
 
 
