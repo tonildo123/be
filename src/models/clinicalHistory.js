@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const clinicalHistorialSchema = new mongoose.Schema({
-    email: {
+    idUser: {
         type: String,
         required: true,
     },
-    password: {
+    photo: {
         type: String,
         required: true,
     },

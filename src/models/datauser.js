@@ -10,18 +10,19 @@ const dataSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    lastName: {
+        type: String,
+        required: true,
+    },
     avatar: {
         type: String,
         required: true,
     },
-    latitud: {
+    numberPhone: {
         type: String,
         required: true,
     },
-    longitud: {
-        type: String,
-        required: true,
-    },
+    
 });
 
-module.exports = mongoose.model('Data', dataSchema);
+module.exports = mongoose.model('ProfileData', dataSchema);

@@ -100,21 +100,6 @@ const updateUserById = async (req, res)=>{
     }
 
 
-
-    // await User.updateOne( {_id:id}, { $set: {email, password} } )
-    //     .then((user)=>{
-    //     res.status(200).json({
-    //         message: "User updated",
-    //         data:user
-    //     })
-    // }
-    // )
-    // .catch((err)=>{
-    //     res.status(500).json({
-    //         message: "Error updating user",
-    //         error: err
-    //     })
-    // })
 }
 
 const deleteUserById = async  (req, res)=>{
@@ -171,5 +156,4 @@ module.exports = {
     updateUserById,
     deleteUserById, 
     findUserWithEmailAndPassword
-
 }

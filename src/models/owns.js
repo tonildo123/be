@@ -1,11 +1,15 @@
 const mongoose = require('mongoose');
 
 const ownSchema = new mongoose.Schema({
-    email: {
+    idUser: {
         type: String,
         required: true,
     },
-    password: {
+    object: {
+        type: String,
+        required: true,
+    },
+    photo: {
         type: String,
         required: true,
     },
