@@ -10,7 +10,7 @@ const {
         deleteUserById, 
         findUserWithEmailAndPassword 
     } = require('../controllers/userController');
-const { getAllProfile, createProfile, findeProfileById, updateProfileById, deleteProfileById } = require('../controllers/profileControler');
+const { getAllProfile, createProfile, findeProfileById, findeProfileByUserId,updateProfileById, deleteProfileById } = require('../controllers/profileControler');
 const { deletePetById, createPet, getAllPet, findePetById, updatePetById } = require('../controllers/petController');
 const { createAddress, getAllAddress, findeAddressById, updateAddressById, deleteAddressById } = require('../controllers/addressController');
 const { createHC, getAllHC, findeHCById, updateHCById, deleteHCById } = require('../controllers/historialClinical');
@@ -28,8 +28,9 @@ router.delete("/delete/:id",deleteUserById) // DELETE
 // crud profile
 
 router.post("/profile/create", upload.single('avatar'), createProfile) // POST
-router.get("/profile/users", getAllProfile)  // GET
+router.get("/profile/allusers", getAllProfile)  // GET
 router.get("/profile/users/:id",findeProfileById) // GET
+router.get("/profile/userId",findeProfileByUserId) // GET
 router.put("/profile/update/:id", updateProfileById) // PUT
 router.delete("/profile/delete/:id",deleteProfileById) // DELETE
 
