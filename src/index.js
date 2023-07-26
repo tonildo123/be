@@ -19,6 +19,10 @@ app.get("/", (req, res) => {
 })
 
 
+console.log('ACCESS_KEY_ID:', process.env.ACCESS_KEY_ID);
+console.log('SECRET_ACCESS_KEY:', process.env.SECRET_ACCESS_KEY);
+
+
 mongoose.set('strictQuery', true);
 mongoose
     .connect(process.env.MONGODB_URI)

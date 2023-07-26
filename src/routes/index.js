@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const upload = require("../utils/multer");
 
 const { 
         createUser,
@@ -26,7 +27,7 @@ router.delete("/delete/:id",deleteUserById) // DELETE
 
 // crud profile
 
-router.post("/profile/create", createProfile) // POST
+router.post("/profile/create", upload.single('avatar'), createProfile) // POST
 router.get("/profile/users", getAllProfile)  // GET
 router.get("/profile/users/:id",findeProfileById) // GET
 router.put("/profile/update/:id", updateProfileById) // PUT

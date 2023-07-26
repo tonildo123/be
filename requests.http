@@ -14,6 +14,9 @@ Content-Type: application/json
 ### 
 GET http://localhost:3636/api/users HTTP/1.1
 
+
+
+
 # traer un usuario por id
 ###
 GET http://localhost:3636/api/users/63d54c25ac4093d1830d97f1 HTTP/1.1
@@ -43,3 +46,13 @@ Content-Type: application/json
    "password": "Carlos8664*"
 
 }
+
+### PROFILE
+# traigo a todos los usuarios profile
+### 
+GET http://localhost:3636/api/profile/users HTTP/1.1
+
+
+# traer un usuario profile por id
+###
+GET http://localhost:3636/api/profile/users/64ab1b8bfd71c64197ab2c12 HTTP/1.1
